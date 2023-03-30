@@ -1,0 +1,90 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.frame {
+    width: 960px;
+    margin: auto;
+}
+.frame_other{
+    width: 480px;
+    margin: auto;
+}
+.grid{
+    display: flex;
+    flex-wrap: wrap;
+}
+//create
+.error-message{
+    color: red;
+}
+.field{
+    display: flex;
+}
+.field_with_errors input{
+    border: 2px solid red;
+}
+// index
+.card-container{
+    margin: 15px;
+    padding: 20px;
+    width: 410px;
+
+    .tool-icon{
+        display: flex;
+        justify-content: space-between;
+        // justify-content: space-between;
+    
+        a{
+            display: inline-block;
+            width: 65px;
+            height: 65px;
+            padding-left: 20px;
+            margin-bottom: 10px;
+    
+            img{
+                width: 100%;
+            }
+        }
+    }
+    .box{
+        margin-bottom: 10px;
+        padding: 0 15px;
+        border: 1px solid black;
+        min-height: 350px;
+    }   
+}
+.title{
+    margin-top: 5px;
+    font-size: 35px;
+}
+.content{
+    // margin-top: 0;
+    padding: 15px;
+    font-size: 20px;
+    
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}
+.footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 15px;
+    margin-bottom: -10px;
+
+    span{
+        border-bottom: 2px solid black;
+    }
+}
+
+//edit
+.card_box{
+    margin: 15px;
+    padding: 20px;
+    max-width: 410px;
+}
+.field{
+    margin-bottom: 10px;
+}

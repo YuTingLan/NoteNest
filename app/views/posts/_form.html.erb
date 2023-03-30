@@ -1,0 +1,35 @@
+<div class='frame_other'>
+    <% if @post.errors.any? %>
+        <section class='error-message'>
+            <ul>
+            <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+            <% end %>
+            </ul>
+        </section>
+    <% end %>
+    <%= form_for(@post) do |f| %>
+        <section class='card_box' style='background-color:<%= @post.color %>'>
+            <div class='field'>
+                <%= '作者' %>
+                <%= f.text_field :name %>
+            </div>
+
+            <div class='field'>
+                <%= '標題' %>
+                <%= f.text_field :title %>
+            </div>
+
+            <div class='field'>
+                <%= '內容' %>
+                <%= f.text_area :content %>
+            </div>
+
+            <div>
+                <%= f.select :color, Post.color_list %>
+            </div>
+        </section>
+        <hr>
+        <%= f.submit %>
+    <% end %>
+</div>

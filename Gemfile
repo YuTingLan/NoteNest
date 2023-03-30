@@ -42,6 +42,9 @@ group :development do
   gem 'listen', '~> 3.3'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  gem 'friendly_id', '~> 5.4'               #修改 params id
+  gem 'babosa', '~> 1.0', '>= 1.0.3'        #讓params id 支援UTF-8
 end
 
 group :test do

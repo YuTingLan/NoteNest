@@ -1,0 +1,18 @@
+<div class="frame_other">
+    <%= link_to image_tag("home.png"), posts_path%>
+    <hr>
+    <% if @post %>
+        <section class="card-container" style="background-color:<%= @post.color %>">
+            <h1 class="title"><%= @post.title %></h1>
+            <section class="box">
+                <div class="content"><%= @post.content %></div>
+            </section>
+            <footer class="footer">
+                <time class="update-time"><%= @post.updated_at.strftime("%Y/%m/%d %I:%M") %></time>
+                <span><%= @post.name %></span>
+            </footer>
+        </section> 
+    <% else %>
+        <h1>No  Record found!</h1>
+<% end %>
+</div>
