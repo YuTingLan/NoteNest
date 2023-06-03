@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+    before_action :find_params, only: [:show, :edit, :update, :destroy]
+
     def index
         # 倒序排列
         @posts = Post.order(created_at: :desc)
@@ -10,20 +12,18 @@ class PostsController < ApplicationController
     end
 
     def create
-        @post = Post.new(params.require(:post).permit(:name, :title, :content, :color))
+        @post = Post.new(post_params)
         if @post.save
             redirect_to posts_path(@post), notice: '新增成功'
         else
             render :new
         end
     end
-
     def edit
-        @post = Post.find(params[:id])
     end
-
+    def show
+    end
     def update
-        @post = Post.find(params[:id])
         if @post.update(post_params)
             redirect_to post_path(@post), notice: '已更新成功'
         else
@@ -31,19 +31,17 @@ class PostsController < ApplicationController
         end
     end
 
-    def show
-        @post = Post.find(params[:id])
-    end
-   
     def destroy
-        @post = Post.find(params[:id])
         @post.destroy
         redirect_to posts_path, notice: '已成功刪除'
     end
 
     private
+    def find_params
+        @post = Post.find(params[:id])
+    end
     def post_params
-        params.require(:post).permit(:name, :title, :content, :color)
+        params.require(:post).permit(:name, :title, :content, :color, :avatar)
     end
 
 end

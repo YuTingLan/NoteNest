@@ -6,6 +6,11 @@
             <h1 class="title"><%= @post.title %></h1>
             <section class="box">
                 <div class="content"><%= @post.content %></div>
+                <div>
+                    <% if @post.avatar.attached? %> 
+                        <%= image_tag @post.avatar, width: "100%" %>
+                    <% end %>
+                </div>
             </section>
             <footer class="footer">
                 <time class="update-time"><%= @post.updated_at.strftime("%Y/%m/%d %I:%M") %></time>
@@ -16,3 +21,5 @@
         <h1>No  Record found!</h1>
 <% end %>
 </div>
+
+

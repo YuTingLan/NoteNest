@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+    has_one_attached :avatar
+    
     validates :name, :title, presence: true
 
     def self.color_list

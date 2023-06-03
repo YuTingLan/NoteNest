@@ -3,25 +3,29 @@
     <hr>
     <div class="grid">
         <% @posts.each do |post| %>
-        <section class="card-container" style="background-color:<%= post.color %>">
-            <div class="tool-icon">
-                <div><h1 class="title"><%= post.title %></h1></div>
-                <div>
-                    <%= link_to image_tag("edit.png"), edit_post_path(post.id),class: "icon" %>
-                    <%= link_to image_tag("delete.png"), post_path(post.id, '#'), 
-                                                    class: "icon icon-danger", 
-                                                    method: "delete", 
-                                                    data: {confirm: "確認刪除?"}%>
+            <section class="card-container" style="background-color:<%= post.color %>">
+                <div class="tool-icon">
+                    <div><h1 class="title"><%= post.title %></h1></div>
+                    <div>
+                        <%= link_to image_tag("edit.png"), edit_post_path(post.id)%>
+                        <%= link_to image_tag("delete.png"), post_path(post.id),
+                                                             method: "delete", 
+                                                             data: {confirm: "確認刪除?"}%>
+                    </div>
                 </div>
-            </div>
-            <section class="box">
-                <div class="content"><%= link_to post.content&.truncate(190), '#' %></div>
-            </section>
-            <footer class="footer">
-                <time class="update-time"><%= post.updated_at.strftime("%Y/%m/%d %I:%M") %></time>
-                <span><%= post.name %></span>
-            </footer>
-        </section> 
-    <% end %>
+                <section class="content_box">
+                    <div class="content"><%= link_to post.content&.truncate(190), post_path(post.id) %></div>
+                    <div>
+                        <% if post.avatar.attached? %> 
+                            <%= image_tag post.avatar, width: "100%" %>
+                        <% end %>
+                    </div>
+                </section>
+                <footer class="footer">
+                    <time><%= format_date(post.updated_at)%></time>
+                    <span><%= post.name %></span>
+                </footer>
+            </section> 
+        <% end %>
     </div>
 </div>

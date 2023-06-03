@@ -16,6 +16,11 @@
             </div>
 
             <div class='field'>
+                <%= f.label :avatar %>
+                <%= f.file_field :avatar %>
+            </div>
+
+            <div class='field'>
                 <%= '標題' %>
                 <%= f.text_field :title %>
             </div>
@@ -24,7 +29,6 @@
                 <%= '內容' %>
                 <%= f.text_area :content %>
             </div>
-
             <div>
                 <%= f.select :color, Post.color_list %>
             </div>
