@@ -21,6 +21,11 @@
             </div>
 
             <div class='field'>
+                <%= f.label :images %>
+                <%= f.file_field :images, multiple: true %>
+            </div>
+
+            <div class='field'>
                 <%= '標題' %>
                 <%= f.text_field :title %>
             </div>

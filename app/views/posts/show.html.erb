@@ -11,6 +11,13 @@
                         <%= image_tag @post.avatar, width: "100%" %>
                     <% end %>
                 </div>
+                <div>
+                    <% if @post.images.attached? %> 
+                        <% @post.images.each do |images| %>
+                            <%= image_tag images, class: "w-1/2" %>
+                        <% end %>
+                    <% end %>
+                </div>
             </section>
             <footer class="footer">
                 <time class="update-time"><%= @post.updated_at.strftime("%Y/%m/%d %I:%M") %></time>

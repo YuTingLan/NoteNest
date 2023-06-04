@@ -20,6 +20,13 @@
                             <%= image_tag post.avatar, width: "100%" %>
                         <% end %>
                     </div>
+                    <div class="flex">
+                        <% if post.images.attached? %> 
+                            <% post.images.each do |images| %>
+                                <%= image_tag images, class: "w-1/2" %>
+                            <% end %>
+                        <% end %>
+                    </div>
                 </section>
                 <footer class="footer">
                     <time><%= format_date(post.updated_at)%></time>
